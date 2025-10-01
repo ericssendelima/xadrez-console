@@ -2,9 +2,36 @@
 using xadrez;
 using xadrez_console;
 
-Tabuleiro tabuleiro = new(8, 8);
+//Meu cmd está com os caracteres na cor verde e fundo preto
+ConsoleColor aux = Console.ForegroundColor;
+Console.ForegroundColor = ConsoleColor.White;
 
-tabuleiro.ColocarPeca(new Torre(Cor.Amarela, tabuleiro), new Posicao(1, 4));
-tabuleiro.ColocarPeca(new Rei(Cor.Branca, tabuleiro), new Posicao(6, 2));
 
-Tela.ImprimirTabuleiro(tabuleiro);
+try
+{
+  PartidaDeXadrez partidaDeXadrez = new();
+
+  while (!partidaDeXadrez.Terminada)
+  {
+    Console.Clear();
+    Tela.ImprimirTabuleiro(partidaDeXadrez.Tabuleiro);
+
+    Console.WriteLine();
+    Console.Write("Origem: ");
+    Posicao origem = Tela.LerPosicaoXadrez().ToPosicao();
+    Console.Write("Destino: ");
+    Posicao destino = Tela.LerPosicaoXadrez().ToPosicao();
+
+    partidaDeXadrez.ExecutaMovimento(origem, destino);
+  }
+}
+catch (TabuleiroException e)
+{
+  Console.WriteLine(e.Message);
+}
+// catch (Exception e)
+// {
+//   Console.WriteLine(e.Message);
+// }
+
+Console.ForegroundColor = aux;
