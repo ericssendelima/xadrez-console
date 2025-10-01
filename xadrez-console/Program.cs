@@ -2,9 +2,9 @@
 using xadrez;
 using xadrez_console;
 
-PosicaoXadrez posicao = new('c', 7);
+Tabuleiro tabuleiro = new(8, 8);
 
-Console.WriteLine(posicao);
+tabuleiro.ColocarPeca(new Torre(Cor.Amarela, tabuleiro), new Posicao(1, 4));
+tabuleiro.ColocarPeca(new Rei(Cor.Branca, tabuleiro), new Posicao(6, 2));
 
-Console.WriteLine();
-Console.WriteLine(posicao.ToPosicao());
+Tela.ImprimirTabuleiro(tabuleiro);
