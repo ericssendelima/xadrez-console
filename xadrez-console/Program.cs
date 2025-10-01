@@ -1,5 +1,6 @@
 ﻿using tabuleiro;
+using xadrez_console;
 
-Posicao p = new(3, 4);
+Tabuleiro tabuleiro = new(8, 8);
 
-Console.WriteLine(p);
+Tela.ImprimirTabuleiro(tabuleiro);
