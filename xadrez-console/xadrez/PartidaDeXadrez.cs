@@ -22,7 +22,7 @@ namespace xadrez
     public void ExecutaMovimento(Posicao origem, Posicao destino)
     {
       Peca pecaDaJogada = Tabuleiro.RetirarPeca(origem);
-      // pecaDaJogada.IncrementarQteMovimentos();
+      pecaDaJogada.IncrementarQteMovimentos();
       Peca pecaCapturada = Tabuleiro.RetirarPeca(destino);
 
       Tabuleiro.ColocarPeca(pecaDaJogada, destino);
@@ -30,8 +30,9 @@ namespace xadrez
 
     private void ColocarPecas()
     {
-      Tabuleiro.ColocarPeca(new Torre(Cor.Branca, this.Tabuleiro), new PosicaoXadrez('c', 1).ToPosicao());
-      Tabuleiro.ColocarPeca(new Rei(Cor.Preta, this.Tabuleiro), new PosicaoXadrez('f', 8).ToPosicao());
+      Tabuleiro.ColocarPeca(new Torre(Cor.Branca, Tabuleiro), new PosicaoXadrez('c', 1).ToPosicao());
+      Tabuleiro.ColocarPeca(new Torre(Cor.Branca, Tabuleiro), new PosicaoXadrez('c', 3).ToPosicao());
+      Tabuleiro.ColocarPeca(new Rei(Cor.Preta, Tabuleiro), new PosicaoXadrez('f', 5).ToPosicao());
     }
   }
 }
