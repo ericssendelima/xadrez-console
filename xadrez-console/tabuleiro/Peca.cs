@@ -14,6 +14,28 @@ namespace tabuleiro
       QteMovimentos++;
     }
 
+    public bool ExisteMovimentosPossiveis()
+    {
+      bool[,] movimentosPossiveis = MovimentosPossiveis();
+      for (int linha = 0; linha < Tabuleiro.Linhas; linha++)
+      {
+        for (int coluna = 0; coluna < Tabuleiro.Colunas; coluna++)
+        {
+          if (movimentosPossiveis[linha, coluna])
+          {
+            return true;
+          }
+        }
+      }
+
+      return false;
+    }
+
+    public bool PodeMoverPara(Posicao destino)
+    {
+      return MovimentosPossiveis()[destino.Linha, destino.Coluna];
+    }
+
     public abstract bool[,] MovimentosPossiveis();
   }
 }

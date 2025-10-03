@@ -71,7 +71,9 @@ namespace xadrez_console
     public static PosicaoXadrez LerPosicaoXadrez()
     {
       string posicao = Console.ReadLine();
-      return new PosicaoXadrez(posicao[0], int.Parse(posicao[1] + ""));
+      PosicaoXadrez posicaoXadrez = new(posicao[0], int.Parse(posicao[1] + ""));
+
+        return posicaoXadrez;
     }
   }
 }
