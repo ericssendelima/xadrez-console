@@ -17,7 +17,6 @@ try
     {
       Console.Clear();
       Tela.ImprimirPartida(partidaDeXadrez);
-     
 
       Console.WriteLine();
       Console.Write("Origem: ");
@@ -42,6 +41,8 @@ try
       Console.ReadLine();//Aguarda o Enter pra repetir o bloco acima
     }
   }
+  Console.Clear();
+  Tela.ImprimirPartida(partidaDeXadrez);
 }
 catch (TabuleiroException e)
 {
