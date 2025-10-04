@@ -9,10 +9,9 @@ namespace tabuleiro
     public Tabuleiro Tabuleiro { get; protected set; } = tabuleiro;
     public int QteMovimentos { get; protected set; } = 0;
 
-    public void IncrementarQteMovimentos()
-    {
-      QteMovimentos++;
-    }
+    public void IncrementarQteMovimentos() => QteMovimentos++;
+    public void DecrementarQteMovimentos() => QteMovimentos--;
+    
 
     public bool ExisteMovimentosPossiveis()
     {

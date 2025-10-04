@@ -13,6 +13,10 @@ namespace xadrez_console
       Console.WriteLine();
       Console.WriteLine($"Turno: {partida.Turno}");
       Console.WriteLine($"Aguardando jogada: {partida.JogadorAtual}");
+      if (partida.Xeque)
+      {
+        Console.WriteLine("XEQUE!");
+      }
 
     }
 
@@ -105,6 +109,12 @@ namespace xadrez_console
     public static PosicaoXadrez LerPosicaoXadrez()
     {
       string posicao = Console.ReadLine();
+
+      if (posicao.Length < 2)
+      {
+        throw new TabuleiroException("Posição inválida!");
+      }
+
       PosicaoXadrez posicaoXadrez = new(posicao[0], int.Parse(posicao[1] + ""));
 
       return posicaoXadrez;
