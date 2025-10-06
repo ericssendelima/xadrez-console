@@ -7,7 +7,7 @@ namespace xadrez
   {
     private HashSet<Peca> _pecas;
     private HashSet<Peca> _pecasCapturadas;
-    public Peca VulneravelEnPassant{ get; private set; }
+    public Peca VulneravelEnPassant { get; private set; }
 
     public int Turno { get; private set; }
     public Cor JogadorAtual { get; private set; }
@@ -64,7 +64,7 @@ namespace xadrez
       {
         if (origem.Coluna != destino.Coluna && pecaCapturada == null)
         {
-           Posicao posP;
+          Posicao posP;
           if (pecaDaJogada.Cor == Cor.Branca)
           {
             posP = new Posicao(destino.Linha + 1, destino.Coluna);
@@ -143,6 +143,22 @@ namespace xadrez
         throw new TabuleiroException("Você não pode se colocar em xeque!");
       }
 
+      Peca pecaDaJogada = Tabuleiro.Peca(destino);
+
+      //Jogada especial - Promoção
+      if (pecaDaJogada is Peao)
+      {
+        if (pecaDaJogada.Cor == Cor.Branca && destino.Linha == 0 || pecaDaJogada.Cor == Cor.Preta && destino.Linha == 7)
+        {
+          pecaDaJogada = Tabuleiro.RetirarPeca(destino);
+          _pecas.Remove(pecaDaJogada);
+          Peca dama = new Dama(pecaDaJogada.Cor, Tabuleiro);
+          Tabuleiro.ColocarPeca(dama, destino);
+          _pecas.Add(dama);
+        }
+      }
+
+
       Xeque = EstaEmXeque(Adversaria(JogadorAtual));
 
       if (TesteXequemate(Adversaria(JogadorAtual)))
@@ -154,8 +170,6 @@ namespace xadrez
         Turno++;
         MudaJogador();
       }
-
-      Peca pecaDaJogada = Tabuleiro.Peca(destino);
 
       //#Jogada especial En Passant
       if (pecaDaJogada is Peao && (destino.Linha == origem.Linha - 2 || destino.Linha == origem.Linha + 2))
