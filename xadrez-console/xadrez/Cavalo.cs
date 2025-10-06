@@ -15,29 +15,57 @@ namespace xadrez
 
       Posicao posicao = new(0, 0);
 
-      //ACIMA - DIREITA
+      //ACIMA 2 casas - DIREITA
       posicao.DefinirValores(Posicao.Linha + 2, Posicao.Coluna + 1);
       if (Tabuleiro.PosicaoEhValida(posicao) && PodeMover(posicao))
       {
         movimentosPossiveis[posicao.Linha, posicao.Coluna] = true;
       }
 
-      //ABAIXO - DIREITA
+      //ABAIXO 2 casas - DIREITA
       posicao.DefinirValores(Posicao.Linha - 2, Posicao.Coluna + 1);
       if (Tabuleiro.PosicaoEhValida(posicao) && PodeMover(posicao))
       {
         movimentosPossiveis[posicao.Linha, posicao.Coluna] = true;
       }
 
-      //ACIMA - ESQUERDA
+      //ACIMA 2 casas - ESQUERDA
       posicao.DefinirValores(Posicao.Linha + 2, Posicao.Coluna - 1);
       if (Tabuleiro.PosicaoEhValida(posicao) && PodeMover(posicao))
       {
         movimentosPossiveis[posicao.Linha, posicao.Coluna] = true;
       }
 
-      //ABAIXO - ESQUERDA
+      //ABAIXO 2 casas - ESQUERDA
       posicao.DefinirValores(Posicao.Linha - 2, Posicao.Coluna - 1);
+      if (Tabuleiro.PosicaoEhValida(posicao) && PodeMover(posicao))
+      {
+        movimentosPossiveis[posicao.Linha, posicao.Coluna] = true;
+      }
+
+      //ACIMA 1 casa - DIREITA 2 casas
+      posicao.DefinirValores(Posicao.Linha + 1, Posicao.Coluna + 2);
+      if (Tabuleiro.PosicaoEhValida(posicao) && PodeMover(posicao))
+      {
+        movimentosPossiveis[posicao.Linha, posicao.Coluna] = true;
+      }
+
+      //ABAIXO 1 casa - DIREITA 2 casas
+      posicao.DefinirValores(Posicao.Linha - 1, Posicao.Coluna + 2);
+      if (Tabuleiro.PosicaoEhValida(posicao) && PodeMover(posicao))
+      {
+        movimentosPossiveis[posicao.Linha, posicao.Coluna] = true;
+      }
+
+      //ACIMA 1 casa - ESQUERDA 2 casas
+      posicao.DefinirValores(Posicao.Linha + 1, Posicao.Coluna - 2);
+      if (Tabuleiro.PosicaoEhValida(posicao) && PodeMover(posicao))
+      {
+        movimentosPossiveis[posicao.Linha, posicao.Coluna] = true;
+      }
+
+      //ABAIXO 1 casa - ESQUERDA 2 casas
+      posicao.DefinirValores(Posicao.Linha - 1, Posicao.Coluna - 2);
       if (Tabuleiro.PosicaoEhValida(posicao) && PodeMover(posicao))
       {
         movimentosPossiveis[posicao.Linha, posicao.Coluna] = true;
