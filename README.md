@@ -32,9 +32,9 @@ O sistema foi projetado em três camadas distintas para garantir organização, 
 - **Validação de Jogadas:** O sistema valida cada jogada, permitindo apenas movimentos que seguem as regras do jogo.
 - **Captura de Peças:** As peças podem capturar peças adversárias, que são removidas do tabuleiro e exibidas em uma lista de peças capturadas.
 - **Jogadas Especiais:**
-  - **Roque:** EM BREVE
-  - **En Passant:** EM BREVE
-  - **Promoção:** EM BREVE
+  - **Roque:** Implementação do roque pequeno e do roque grande, um movimento especial que envolve o Rei e uma das Torres.
+    - **En Passant:** Suporte para a captura especial *en passant*, exclusiva dos peões.
+    - **Promoção:** Um peão que alcança a oitava fileira é promovido a uma peça de maior valor Rainha(Dama).
 - **Controle de Turnos:** O jogo alterna automaticamente entre o jogador das peças brancas e o das peças pretas.
 - **Detecção de Xeque e Xeque-mate:** O sistema identifica situações de xeque e declara o fim do jogo em caso de xeque-mate, indicando o vencedor.
 
