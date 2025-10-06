@@ -117,6 +117,10 @@ namespace xadrez_console
     public static PosicaoXadrez LerPosicaoXadrez()
     {
       string posicao = Console.ReadLine();
+      if (String.IsNullOrEmpty(posicao))
+      {
+        throw new TabuleiroException("Posição inválida!");
+      }
       string linhaString = posicao.Substring(1);
       bool converteuLinha = int.TryParse(linhaString, out int linha);
 
